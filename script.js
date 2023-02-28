@@ -1043,6 +1043,10 @@ Note:- Push & Pop are fast in comparison to Shift & Unshift.
 /// ??? What is " Primitive vs Reference Data" Type ???
 
 let num1 = 6;
+let num2 = num1;
+
+console.log("value is num1 is", num1);
+console.log("value is num2 is", num2);
 
 
 
