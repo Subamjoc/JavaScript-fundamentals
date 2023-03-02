@@ -1042,12 +1042,30 @@ Note:- Push & Pop are fast in comparison to Shift & Unshift.
 /*
 /// ??? What is " Primitive vs Reference Data" Type ???
 
+
+/// Primitive Data Type:-  These data types are pretty simple, and are sometimes treated as the lowest level of implementation of a programming language. They are not objects, and do not have methods. Primitive data types are (Number, String, Boolean, Undefined, Symbol, Null and BigInt.)
+
+Example:- 
+
 let num1 = 6;
 let num2 = num1;
 
-console.log("value is num1 is", num1);
-console.log("value is num2 is", num2);
+console.log("value is num1 is", num1); // value is num1 is 6
+
+console.log("value is num2 is", num2); // value is num2 is 6
+             
+/// But if we increment num1, than
+
+num1++;
+console.log("value is num1 is", num1); // value is num1 is 7
+
+console.log("value is num2 is", num2); // value is num2 is 6
 
 
+/// Refrence Data Type :- Reference data types, unlike primitive data types, are dynamic in nature. That is, they do not have a fixed size.
+
+Most of them are considered as objects, and therefore have methods. Examples of such data types include arrays, functions, collections, and all other types of objects.
+
+Example:- 
 
 */
