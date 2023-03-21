@@ -1062,10 +1062,278 @@ console.log("value is num1 is", num1); // value is num1 is 7
 console.log("value is num2 is", num2); // value is num2 is 6
 
 
+**Note**  Primitive DataType are store in 'Stack'.
+
+
 /// Refrence Data Type :- Reference data types, unlike primitive data types, are dynamic in nature. That is, they do not have a fixed size.
 
 Most of them are considered as objects, and therefore have methods. Examples of such data types include arrays, functions, collections, and all other types of objects.
 
-Example:- 
+Example:- // array
+
+let array1 = ["item1", "item2"];
+let array2 = array1;
+
+console.log("array1", array1); // array1 > (2) ["item1", "item2"]
+
+console.log("array2", array2); // array2 > (2) ["item1", "item2"]
+
+**Note**  Refrence DataType are store in 'Heap', but all items pointer make in 'Stack' one by one.
+
+NOW PUSHING new item3 in array1 than,
+
+array1.push("item3");
+
+console.log("array1", array1); // array1 > (3) ["item1", "item2", "item3"]
+
+console.log("array2", array2); // array2 > (3) ["item1", "item2", "item3"]
+
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? How to Clone Array' ???
+
+let array1 = ["item1", "item2"];
+let array2 = array1;
+
+console.log(array1 ==== array2); // true
+
+ ** Now making differet array
+
+let array1 = ["item1", "item2"];
+let array2 = ["item1", "item2"];
+
+array1.push("item3");
+
+console.log(array1 ==== array2); // false
+console.log(array1) // > (3) ["item1", "item2", "item3"]
+console.log(array2) // > (2) ["item1", "item2"]
+
+IT IS NOT A GOOD METHOD TO CLONE ANY ARRAY BECAUSE IF YOU HAVE THOUSANDS OF ITEMS THAN YOU PUSH ONE BY ONE SO IT'S VERY LENGTHY WORK SO, WE DO DIFFERENT METHODs TO CLONE ANY ARRAY.
+
+1.) Clone any Array by Slice method:-
+
+let array1 = ["item1", "item2"];
+let array2 = array1.slice(0);
+array1.push("item3");
+
+console.log(array1 === array2); // false
+console.log(array1) // > (3) ["item1", "item2", "item3"]
+console.log(array2) // > (2) ["item1", "item2"]
+
+2.) Clone any Array by Concatenate method:-
+
+let array1 = ["item1", "item2"];
+let array2 = [].concate(array1);
+array1.push("item3");
+
+console.log(array1 === array2); // false
+console.log(array1) // > (3) ["item1", "item2", "item3"]
+console.log(array2) // > (2) ["item1", "item2"]
+
+
+3.) Clone any Array by Spread Opreator method:-
+
+
+let array1 = ["item1", "item2"];
+let array2 = [...array1];
+array1.push("item3");
+
+console.log(array1 === array2); // false
+console.log(array1) // > (3) ["item1", "item2", "item3"]
+console.log(array2) // > (2) ["item1", "item2"]
+
+
+
+****** How to Concatenate Two Arrays ********
+1.Method
+
+
+let array1 = ["item1", "item2"];
+let array2 = array1.slice(0).concat(["item3", "item4"]);
+array1.push("item3");
+
+console.log(array1 === array2); // false
+console.log(array1) // > (3) ["item1", "item2", "item3"]
+console.log(array2) // > (4) ["item1", "item2", "item3", "item4"]
+
+
+2. Method
+
+let array1 = ["item1", "item2"];
+let array2 = [].concate(array1, ["item3", "itmem4"]);
+array1.push("item3");
+
+console.log(array1 === array2); // false
+console.log(array1) // > (3) ["item1", "item2", "item3"]
+console.log(array2) // > (4) ["item1", "item2", "item3", "item4"]
+
+
+3. Method
+
+
+let array1 = ["item1", "item2"];
+let array2 = [...array1, "item3", "item4"];
+array1.push("item3");
+
+console.log(array1 === array2); // false
+console.log(array1) // > (3) ["item1", "item2", "item3"]
+console.log(array2) // > (4) ["item1", "item2", "item3", "item4"]
+
+*/
+
+////////////////////////////////////////////////////
+
+///////// *****  Loop in Array **** ////////////////
+
+/*
+/// ??? How to Use " 'for' loop in Array " ???
+
+
+let fruits = ["apple", "mango", "grapes", "banana"];
+
+//  for(let i=0; i<=9;i++){
+//     console.log(i); // 0, 1, 2, 3, 4, ..., 9
+// }
+
+// console.log(fruits.length); // 4
+// console.log(fruits[2]); // grapes
+// console.log(fruits[frruits.length-2]); // grapes
+
+// for(let i=0; i<=fruits.length-1; i++){
+//     console.log(i); // 0  1  2  3  
+// }
+
+but if we do 
+
+// for(let i=0; i < fruits.length; i++){
+//     console.log(i); // 0  1  2  3  
+// }
+
+// for(let i=0; i < fruits.length; i++){
+//     console.log(fruits[i]); // apple  mango  grapes  banana  
+// }
+
+// for(let i=0; i < fruits.length; i++){
+//     console.log(fruits[i].toUpperCase()); // APPLE  MANGO  GRAPES  BANANA  
+// }
+
+
+let fruits2 = [];
+for(let = 0; i < fruits.length; i++){
+    fruits.push(fruits[i].toUpperCase());
+}
+
+console.log(fruits2); // > (4) ["APPLE", "MANGO", "GRAPES", "BANANA"]
+*/
+
+/*
+/// ??? How to Use " 'const' for creating Arraay " ???
+
+    // heap memory ["apple", "mango"] 0x11 
+
+const fruits = ["apple", "mango"];  // address 0x11
+fruits.push("banana");
+console.log(fruits); // > (3) ["apple", "mango", "banana"]
+
+** if we try to change this array with const**
+
+const fruits = ["apple", "mango"];  // address 0x11
+fruits = ["grapes", "mango"];
+fruits.push("banana");
+console.log(fruits); // error
+
+
+*/
+
+/*
+/// ??? How to Use " 'while' loop in Array " ???
+
+const fruits = ["apple", "mango", "grapes"];
+const fruits2 = [];
+
+// let i = 0; 
+// while(i < fruits.length){
+//     console.log(fruits[i]); // apple  mango  grapes
+//     I++;
+// }
+
+// let i = 0;
+// while(i < fruits.length){
+//     console.log(fruits[i].toUpeerCase()); // APPLE MANGO GRAPES
+//     i++;
+// }
+
+let i = 0;
+while(i < fruits.length){
+    fruits2.push(fruits[i].toUpperCase());
+    i++;
+}
+console.log(fruits[i]); // >  (3) ["APPLE", "MANGO", "GRAPES"]
+
+*/
+
+/*
+/// ??? How to Use " 'for of' loop in Array " ???
+
+
+const fruits = ["apple", "mango", "grapes"];
+const fruits2 = [];
+
+
+// for(let fruit of fruits){
+//     console.log(fruit); // apple  mango  grapes
+// }
+
+
+// for(let fruit of fruits){
+//     console.log(fruit.toUpperCase()); // APPLE MANGO GRAPES
+// }
+
+
+for(let fruit of fruits){
+    fruits2.push(fruit.toUpperCase()); // APPLE MANGO GRAPES
+}
+
+console.log(fruits2); // > (3) ["APPLE", "MANGO", "GRAPES"]
+
+** jitni length hogi utni bar loop chlti rhegi **
+
+*/
+
+/*
+/// ??? How to Use " 'for in' loop in Array " ???
+
+
+const fruits = ["apple", "mango", "grapes"];
+const fruits2 = [];
+
+// for(let index in fruits){
+//     console.log(index); // 0  1  2  
+// }
+
+
+
+// for(let index in fruits){
+//     console.log(fruits[index]); // apple  mango  grapes
+// }
+
+for(let index in fruits){
+    fruits2.push(fruits[index].toUpperCase());
+}
+console.log(fruits2); // > (3) ["APPLE", "MANGO", "GRAPES"]
+
+**** For Array we use mostly "for of loop", "for loop" ****
+
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? What is " Array Destructing " ???
+
+ 
 
 */
