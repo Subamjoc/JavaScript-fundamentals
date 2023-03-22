@@ -1334,6 +1334,315 @@ console.log(fruits2); // > (3) ["APPLE", "MANGO", "GRAPES"]
 /*
 /// ??? What is " Array Destructing " ???
 
+// const myArray = ["valu1", "value2"];
+
+// let myvar1 = myArray[0];
+// let myvar2 = myArray[1];
+
+// console.log("value of myvar1", myvar1); // value of myvar1 value1
+
+// console.log("value of myvar2", myvar2); // value of myvar2 value2
+
+
+** Short method to ' Array Destructing ' **
+
+1. // const myArray = ["value1", "value2"];
+
+// let [myvar1, myvar2] = myArray;
+
+// console.log("value of myvar1", myvar1); // value of myvar1 value1
+
+// console.log("value of myvar2", myvar2); // value of myvar2 value2
+
+
+2. // const myArray = ["value1", "value2"];
+
+// let [myvar1, myvar2] = myArray;
+myvar1 = "value changed"
+
+// console.log("value of myvar1", myvar1); // value of myvar1 value changed
+
+// console.log("value of myvar2", myvar2); // value of myvar2 value2
+
+
+3. // const myArray = ["value1", "value2", "value3"];
+
+// let [myvar1, myvar2, myvar3] = myArray;
+
+// console.log("value of myvar1", myvar1); // value of myvar1 value1
+
+// console.log("value of myvar2", myvar2); // value of myvar2 value2
+
+// console.log("value of myvar3", myvar3); // value of myvar3 value3
+
+
+4. // const myArray = ["value1"];
+
+// let [myvar1, myvar2, myvar3] = myArray;
+
+// console.log("value of myvar1", myvar1); // value of myvar1 value1
+
+// console.log("value of myvar2", myvar2); // value of myvar2 undefined
+
+// console.log("value of myvar3", myvar3); // value of myvar3 undefined
+
+5. // const myArray = ["value1", "value2", "value3"];
+
+// let [myvar1, , myvar2] = myArray;
+
+// console.log("value of myvar1", myvar1); // value of myvar1 value1
+
+// console.log("value of myvar2", myvar2); // value of myvar2 value3
+
+6. // const myArray = ["value1", "value2", "value3", "value4"];
+
+// let [myvar1, myvar2] = myArray;
+// let myNewArray = myArray.slice(2);
+
+// console.log("value of myvar1", myvar1); // value of myvar1 value1
+
+// console.log("value of myvar2", myvar2); // value of myvar2 value2
+
+// console.log(myNewArray); // > (2) ["value3", "value4"]
+
+7. // const myArray = ["value1", "value2", "value3", "value4"];
+
+// let [myvar1, myvar2, ...myNewArray] = myArray;
+
+// console.log("value of myvar1", myvar1); // value of myvar1 value1
+
+// console.log("value of myvar2", myvar2); // value of myvar2 value2
+
+// console.log(myNewArray); // > (2) ["value3", "value4"]
+
+*/
+
+////////////////////////////////////////////////////
+
+/* OBJECTS 
+
+ Arrays are good but not sufficient. But for real world data arrays not so good, so we use Objects.
+ Objects are refrencetype. Objects store key value pairs. Objects don't have index. 
+                                    */
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? How to Create " Objects " ???
+
+// const person = {name: "Shubham", age: 23}
+// console.log(person); // > {name: "Shubham", age: 23}
+// console.log(typeof person); // object
+
+
+
+
+*************
+
+
+
+/// ??? How to " Access Data from Objects " ???
+
+// console.log(person.name); // Shubham
+// console.log(person.age); // 23
+
+**** Store Array in Objects Property (key) Inside **
+
+// const person = {
+//     name: "Shubham"
+//     age: 23;
+//     hobbies: ["Listening Music", "Drwa Doodles", "Scrolling Internet"]
+// }
+// console.log(persson.hobbies); // > {name: "Shubham", age: 23, hobbies: Array (3)}
+// > (3) ["guitar", "sleeping", "listening music"]
+
+
+
+
+
+
+************
+
+
+
+/// ??? How to " Add Key Value Pair to Objects " ???
+
+const person = {
+    name: "Shubham"
+    age: 23;
+    hobbies: ["Listening Music", "Drwa Doodles", "Scrolling Internet"]
+}
+console.log(persson.hobbies); // > {name: "Shubham", age: 23, hobbies: Array (3)}
+> (3) ["guitar", "sleeping", "listening music"]
+
+
+// ***Add Key Value Pair to Objects
+
+
+// peson.gender = "male"
+// console.log(person); // > {name: "Shubham", age: 23, hobbies: Array (3), gender: "male"}
+
+
+// *** Objects with Bracket Notation
+
+console.log(person["name"]); // Shubham
+console.log(person["age"]);  // 23
+
+***Add Key Value Pair with Bracket Notaion to Objects
+
+
+person["gender"] = "male";
+console.log(person) // > {name: "Shubham", age: 23, hobbies: Array (3), gender: "male"}
+
+
+**********
+
+
+/// ??? Differnce between " Dot Notatio " & " Bracket Notation " ???
+
+1. If you want key name like ( person hobbies) gap between two word than it is show error in output so you write this key name under the Sting ( "person hobbies") and for output you just simply write ( console.log(person["person hobbies"]); ). It's show live in givn below example;-
+
+Example 1:- 
+
+// const person = {
+//     name: "Shubham"
+//     age: 23;
+//     "person hobbies": ["Listening Music", "Drwa Doodles", "Scrolling Internet"]
+// }
+
+// console.log(person.["person hobbies"]); // > (3) ["Listening Music", "Drawing Doodles", "Scrolling Internet"]
+
+
+
+
+2. If we have two variable and we want one variable shown under the second variable than we do:- 
+
+const key = "email";
+const person = {
+    name: "Shubham"
+    age: 23;
+    "person hobbies": ["Listening Music", "Drwa Doodles", "Scrolling Internet"]
+}
+
+// person.key = "subhamjoshi1998@gmail.com"
+// console.log(person); // {name: "harshit", age: 22, person hobbies: Array (3), key: "subhamjoshi1998@gmail.com"}
+
+
+// *** but we want place of 'key' is 'email' so we try another method;***
+
+
+// person["key"] = "subhamjoshi1998@gmail.com"
+// console.log(person); // {name: "harshit", age: 22, person hobbies: Array (3), key: "subhamjoshi1998@gmail.com"}
+
+
+// *** again in this method we not get  place of 'key' is 'email' so we try another method;***
+
+
+person[key] = "subhamjoshi1998@gmail.com"
+console.log(person); // {name: "harshit", age: 22, person hobbies: Array (3), email: "subhamjoshi1998@gmail.com"}
+
+
+// *** so in this method we get 'key' replace with 'eamil' ***
+
+
+
+**********
+
+
+/// ???  How to " Iterate Objects " ??
+
+const person = {
+    name: "Shubham"
+    age: 23;
+    "person hobbies": ["Listening Music", "Drwa Doodles", "Scrolling Internet"]
+}
+
+
+**** 1. Iterate Objects by " For in Loop Method" ****
+
+// for(let key in person){
+//     console.log(key); // name  age  hobbies
+// }
  
+
+*** In this way we not get values of key so we try another way **
+
+
+// for(let key in person){
+//     console.log(person.key) // (3) undefined
+// }
+
+
+*** Also in this way also not get values so we again we try another way to fwt values ***
+
+
+// for(let key in perrson){
+//     console.log(person[key]); // Shubham  23  (3) Array
+// }
+
+
+*** In this way we get values so we use this method to get values in for in loo in objects. ***
+
+
+******* To Get Key-Value Pairs in For In Loop In Object ****
+
+1. Method by using Tempalte String:-
+
+// for(let key in person){
+//     console.log(`${key} : ${person[key]}`); 
+//     // name : Shubham
+//        age : 23
+//        person hobbies : Listening Music,Drwa Doodles,Scrolling Internet
+// }
+
+
+2. 2ND METHOD:-
+
+// for(let key in person){
+//     console.log(key, person[key]); 
+//     // name  Shubham
+//        age  23
+//        person hobbies (3) ["Listening Music" ,"Drwa Doodles", "Scrolling Internet"]
+// }
+
+                OR
+// for(let key in person){
+//     console.log(key, " : ", person[key]); 
+//     // name : Shubham
+//        age : 23
+//        person hobbies : (3) ["Listening Music", "Drwa Doodles", "Scrolling Internet"]
+// }
+
+
+
+
+**** 2. Iterate Objects by " Object Keys Method" ****
+
+
+console.log(Object.keys(person)); // (3) ["name", "age", "person hobbies"]
+console.log(typeof Object.keys(person))); // object
+
+
+*** So we get from ' Object.keys ' through an Array and if you want to check this than you check by this way:- ***
+
+const val = Array.isArray((Object.keys(person)));
+console.log(val); // true
+
+** So here " true " show that ' Object.keys ' gives us an ' Array '. **
+
+
+** Now you use " For of Loop " method to "Iterate Objects" get key and values, given below the examples of how you use for of loop method **
+
+
+for(let key of Objects.keys(person)){
+    console.log(key); // name  age  person hobbies
+}
+
+*** if you want values than do this;- **
+
+
+for(let key of Objects.keys(person)){
+    console.log(person[key]); // Shubham  23  ["Listening Music", "Drwa Doodles", "Scrolling Internet"]
+}
 
 */
