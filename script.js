@@ -1646,3 +1646,163 @@ for(let key of Objects.keys(person)){
 }
 
 */
+
+////////////////////////////////////////////////////
+
+/* *** ??? What is " Computed Properties " ??? 
+
+const key1 = "objkey1";
+const key2 = "objkey2";
+
+const value1 = "myvalue1";
+const value2 = "myvalue2"; 
+
+// const obj = {
+//     key1 : value1,
+//     key2 : value2
+// }
+
+// console.log(obj); // {key1: "myvalue1", key2: "myvalue2"}
+
+*** NOW USE COMPUTED PROPERTIES ***
+1. method
+
+// const obj = {
+//     [key1] : value1,
+//     [key2] : value2
+// }
+
+// console.log(obj); // {objkey1: "myvalue1", objkey2: "myvalue2"}
+
+2. method
+
+const obj = {};
+
+obj[key1] = value1;
+obj[key2] = value2;
+
+console.log(obj); // {objkey1: "myvalue1", objkey2: "myvalue2"}
+
+
+
+
+*/
+
+////////////////////////////////////////////////////
+
+/* *** ??? What is " Sprread Opreator " ??? 
+
+
+
+
+/// *** Spread opreator in Array *** ///
+
+Example 1.
+
+const array1 = [1, 2, 3];
+const array2 = [5, 6, 7];
+
+// const newArray = [...array1, ...array2]
+
+// console.log(newArray); // (6) [1, 2, 3, 4, 5, 6, 7]
+
+***
+
+Example 2.
+const newArray = [...array1, array2]
+
+console.log(newArray); // (4) [1, 2, 3, Array(3)]
+
+
+***
+
+Example 3.
+
+// const newArray = [...array1, ...array2, 89, 68]
+
+// console.log(newArray); // (6) [1, 2, 3, 4, 5, 6, 7, 89, 68]
+
+
+***
+
+Example 4.
+
+const newArray = [..."abc", ..."123456789"]
+
+console.log(newArray); // (12) ["a", "b", "c", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+** Note:- If you write integer without string than that will not spread because integers are not Iterable, so output will show an error. **
+
+
+/// *** Spread opreator in Objeects *** ///
+
+Example 1.
+
+const obj1 = {
+    key1: "value1";
+    key2: "value2";
+   
+};
+const obj2 = {
+    key3: "value3";
+    key4: "value4";
+};
+
+// const newObject = {...obj1, ...obj2, key69: "value69"}
+// console.log(newObject); // {key1: "value1", key2: "value2", key3: "value4", key4: "value4", key69: "value69"}
+
+Example 2.
+
+// const newObject = {..."abc"};
+// console.log(newObject); // {0: "a", 1: "b", 2: "c"}
+
+Example 3.
+
+const newObject = {...["item1", "item2"]};
+console.log(newObject); // {0: "item1", 1: "item2"}
+
+*/
+
+////////////////////////////////////////////////////
+
+/* *** ??? What is " Object Destructuring " ??? 
+
+
+// const band = {
+//     bandName: "led zepplin",
+//     famousSong: "stairway to heaven"
+// };
+
+// const bandName = band.bandName;
+// const famousSong = band.famousSong;
+
+// console.log(bandName, famousSong); // led zepplin   stairaway to heaven
+
+*** Above whole process is one shortcut that is called destructuring of the object which will be learn in next example: ****
+
+*** Destructuring ***
+
+const band = {
+    bandName: "ledzeppline",
+    famousSong: "stairway to heaven",
+    year: 1968,
+    anotherFamousSong: "Kashmir",
+};
+
+let { bandName, famousSong, ...restProps} = band;
+
+console.log(bandName, FamousSong); // led zepplone   stairway to heaven
+
+console.log(restProps); // {year: 1968, anotherFamousSong: "Kashmir"}
+
+*/
+
+////////////////////////////////////////////////////
+
+/* *** ??? How to Use " Object Inside Array " ??? 
+
+** This is very useful in real world application. **
+
+
+
+*/
