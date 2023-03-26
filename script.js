@@ -1803,6 +1803,66 @@ console.log(restProps); // {year: 1968, anotherFamousSong: "Kashmir"}
 
 ** This is very useful in real world application. **
 
+const users = [
+    {userId: 1, firstName: 'Shubham', gender: 'male' },
+    {userId: 2, firstName: 'Anoop', gender: 'male'},
+    {userId: 3, firstName: 'Bhupesh', gender: 'male'},
+]
+// for(let user of users){
+//     console.log(users); // {userId: 1, firstName: 'Shubham', gender: 'male' },
+//     {userId: 2, firstName: 'Anoop', gender: 'male'},
+//     {userId: 3, firstName: 'Bhupesh', gender: 'male'}
+// }
 
+** if you want only key of object than use this way **
+for(let user of users){
+    comnsole.log(user.firstName); //  Shubham  Anoop  Bhupesh 
+}
+
+*/
+
+////////////////////////////////////////////////////
+
+/* *** ??? How to Use " Nested Destructuring " ??? 
+
+const user = [
+    {userId: 1, firstName: 'Shubham', gender: 'male' },
+    {userId: 2, firstName: 'Anoop', gender: 'male'},
+    {userId: 3, firstName: 'Bhupesh', gender: 'male'},,
+    {userId: 2, firstName: 'Anoop', gender: 'male'},
+    {userId: 3, firstName: 'Bhupesh', gender: 'male'},
+]
+
+// const [user1, user2, user3] = user;
+
+// console.log(user1); // {userId: 1, firstName: 'Shubham', gender: 'male' }
+
+
+** but if you want user1 to get firstName and user3 gender detail so you use nested destrucuring by this way :- **
+
+const[{firstName}, , {gender}] = users;
+console.log(firstName); // Shubham
+console.log(gender); // male
+
+                    OR
+
+const[{firstName: user1firstName, userId}, , {gender: user3gender}] = users;
+console.log(user1firstName); // Shubham
+console.log(userId); // 1
+console.log(user3gender); // male
+
+*/
+
+////////////////////////////////////////////////////
+
+/* FUNCTIONS 
+
+A function is a block of code that performs a specific task. JavaScript functions are basically used to encapsulate logic, making that code more reusable and easier to understand 
+                                    */
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? How to Create " Objects " ???
 
 */
