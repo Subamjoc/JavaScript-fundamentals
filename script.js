@@ -1863,6 +1863,153 @@ A function is a block of code that performs a specific task. JavaScript function
 ////////////////////////////////////////////////////
 
 /*
-/// ??? How to Create " Objects " ???
+/// ??? How to Create " Function Decleration" ???
+
+Example 1.
+
+function singHappyBirthday(){
+    console.log("happy birthday to you.....")
+}
+
+
+singHappyBirthday(); // happy birthday to you.....
+
+singHappyBirthday(); // happy birthday to you.....
+
+singHappyBirthday(); // happy birthday to you.....
+
+singHappyBirthday(); // happy birthday to you.....
+
+
+Example 2.
+
+function sumTwoNumbers(number1, number2){
+    return number1 + number2;
+}
+
+const returnedValue = sumTwoNumbers(4, 5);  
+console.log(returnedValue); // 9
+
+const returnedValue = sumTwoNumbers();
+console.log(returnedValue); // NaN
+console.log(undefined + undefined); // NaN
+
+
+Example 3.
+
+function sumThreeNumbers(number1, number2, number3){
+    return number1 + number2 + number3;
+}
+
+const returnedValue = sumTwoNumbers(4, 5, 6);  
+console.log(returnedValue); // 15
+
+const returnedValue = sumTwoNumbers(4,5);
+console.log(returnedValue); // NaN
+console.log(2 + 3 + undefined); // NaN
+
+Example 4.
+
+// Odd or Even
+// Function Name : isEven
+// Input : 1 number
+// Output : true (if function is even othervise give false)
+
+
+function isEven(number){
+    if(number % 2 === 0){
+        return trye;
+    }else{
+        return false;
+    }
+}
+
+consol.log(isEven(2)); // true
+
+consol.log(isEven(3)); // false
+
+** YOU WRITE THIS FUNCTION MORE SMALL ALSO IN THIS WAY; **
+
+function isEven(number){
+    return number % 2 ==== 0;
+}
+
+consol.log(isEven(4)); // true
+
+consol.log(isEven(5)); // false
+
+
+Example 5.
+
+// function : firstChar
+// input : string
+// output : firstCharacter
+
+function firstChar(anyString){
+    return anystring[0];
+}
+
+console.log(firstChar("abc")); // a
+
+
+Example 6.
+
+// function : findTarget
+// input : array, target (number)
+// output : index of target if target is present in the array and if you not get the target in the array than output will give -1.
+
+
+function findTarget(array, target){
+    for(let i = 0; i < array.length; i++){
+        if(array[i] === target){
+            return i;
+        }
+    }
+    return -1;
+}
+
+const myArray = [1, 3, 8, 90]
+const ans = findTarget(myArray, 3)
+
+// console.log(ans); // 90
+
+console.log(ans); // -1
+*/
+
+/*
+/// ??? How to Create " Function Expression" ???
+
+Example 1.
+
+const singHappyBirthday = function(){
+    console.log("happy birthday to you ......");
+}
+
+singHappyBirthday(); // happy birthday to you ......
+
+
+Example 2.
+
+const sumThreeNumbers = function(number1 + number2 + number3){
+    return number1 + number2 + number3;
+}
+const ans = sumThreeNumbers(2, 3, 4);
+console.log(ans); // 9
+
+
+Example 3. 
+
+const isEven = function(number){
+    return number % 2 === 0;
+}
+console.log(isEven(2)); // true
+
+
+Example 4.
+
+
+
+
+
 
 */
