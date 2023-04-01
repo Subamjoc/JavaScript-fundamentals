@@ -1976,6 +1976,7 @@ const ans = findTarget(myArray, 3)
 console.log(ans); // -1
 */
 
+////////////////////////
 /*
 /// ??? How to Create " Function Expression" ???
 
@@ -2007,8 +2008,418 @@ console.log(isEven(2)); // true
 
 Example 4.
 
+const firstChar = function(anyString){
+    return anyString[0];
+}
+console.log(firstChar("a, b, c")); // a
+
+*/
+
+///////////////////////////////////////////////////
+/*
+/// ??? What is " Arrow Function " & How to Create " Arrow Function " ???
+
+***
+An arrow function expression is a compact alternative to a traditional function expression.
+***
 
 
+Example 1.
+
+const singHappyBirthday = () => {
+    console.log("happy birthday to you ......")
+}
+
+singHappyBirthday(); // happy birthday to you .....
+
+
+Example 2.
+
+const sumThreeNumbers = (number1, number2, number3) => {
+    return number1 + number2 + number3;
+}
+
+const ans = sumThreeNumbers(2,3,4);
+console.log(ans); // 9
+
+Example 3. 
+
+
+const isEven = number => {
+    return number % 2 === 0;
+}
+
+console.log(isEven(4)); // true
+
+
+                        OR
+
+
+const isEven = number => number % 2 === 0;
+
+console.log(isEven(4)); // true
+
+*/
+
+///////////////////////////////////////////////////
+
+/*
+/// ??? What is " Hoisting " & How to Create " Hoisting " ???
+
+JavaScript Hoisting refers to the process whereby the interpreter appears to move the declaration of functions, variables or classes to the top of their scope, prior to execution of the code.
+
+
+Example 1.
+
+hello(); //  hello world
+
+function hello(){
+    console.log("hello world"); 
+}
+
+
+** Only use in Function Decleration Case. **
+
+Example 2. 
+
+console.log(hello); // undefined
+
+var hello = "hello world";
+
+console.log(hello); // hello world
+
+** But if you use let or const than you get as a output Refrence Error. **
+
+*/
+
+///////////////////////////////////////////////////
+
+/*
+/// ??? How to Create " Function Inside function " ???
+
+const app = () =>{
+    const myFunc = () =>{
+        console.log("hello from myFunc");
+    }
+    const addTwo = (num1, num2) =>{
+        return num1 + num2;
+    }
+    const mul = (num1, num2) => num1 * num2;
+
+    console.log("inside app")
+    myFunc(); // hello from myFunc
+    console.log(addTwo(2,3)); // 5
+    console.log(mul(2,3)); // 6
+}
+app(); // inside app
+
+*/
+
+///////////////////////////////////////////////////
+
+/*
+/// ??? What is " Lexical Scope " ???
+
+function myApp(){
+    const myVAr = "value1";
+    function myFunc(){
+        // const myVar = "value59";
+        console.log("inside myFunc", myvar);
+    }
+    console.log(myVar); // value1
+    myFunc(); // inside myFunc value1
+}
+myApp();
+
+*/
+
+///////////////////////////////////////////////////
+
+/*
+/// ??? What is " Block Scope vs Function Scope " ???
+
+In javascript the whole document is global scope and all the other functions and variables are contained in this " GLOBAL SCOPE ".
+
+Another is the " LOCAL SCOPE ", variables declared inside the functions are considered to be of the local scope and it is futher divided into FUNCTION SCOPE & BLOCK SCOPE.
+
+FUNCTION SCOPE :- When a variable is declared inside a function, it is only accessible within that function and cannot be used outside that function.
+
+BLOCK SCOPE :-  A variable when declared inside the if or switch conditions or inside for or while loops, are accessible within that particular condition or loop. To be consise the variables declared inside the curly braces are called as within block scope.
+
+*** Note :- // Let & Const are Block Scope. 
+            // Var is Function Scope. ****
+
+Example 1.
+
+{
+    let firstName = "Shubahm";
+    console.log(firstName); // Shubham
+}
+console.log(firstName); // Refrence Error
+
+                    OR
+
+{
+    const lastName = "Joshi"
+    console.log(lastName); // Joshi
+}
+console.log(lastName); // Refrence Error
+
+** Let & Const are Block Scope **
+
+Example 2. 
+
+{
+    var firstName = "Shubham"
+}
+console.log(firstName); // Shubham
+
+Example 3.
+
+function myApp(){
+    if(true){
+        let firstName = "Shubham";
+        console.log(firstName);
+    } 
+
+    if (true){
+        console.log(firstName);
+    }
+    console.log(firstName);
+}
+
+myApp(); // Shubham
+        //  Refrence Error
+
+*/
+
+///////////////////////////////////////////////////
+
+/*
+/// ??? What is " Default Parameter " ???
+
+Example 1.
+
+function addTwo(a,b){
+    return a+b;
+}
+
+const ans = addTwo(4, 5);
+console.log(ans); // 9
+
+
+** but if we not pass 2nd element than we get NaN.**
+
+
+function addTwo(a,b){
+    return a+b;
+}
+
+const ans = addTwo(4);
+console.log(ans); // NaN
+
+
+** but we want if we not pass 2nd element than automatically get 0 so we earlier do before Es6,**
+
+
+function addTwo(a,b){
+    if(typeof b === "undefined"){
+        b = 0;
+    }
+    return a+b;
+}
+
+const ans = addTwo(4);
+console.log(ans); // 4 + 0 = 4
+
+
+*** Now after Coming ES6 we have Default Pararameters so, our work will be easy now same thing we do in d+b;ifferent way... ***
+
+function addTwo(a, b=0){
+    return a+b;
+}
+
+const ans = addTwo(4);
+console.log(ans); // 4
+
+
+*/
+
+///////////////////////////////////////////////////
+
+/*
+/// ??? What is " Rest Parameter " ???
+
+Example 1.
+
+
+function myFunc(a,b,...c){
+    console.log(`a is ${a}`); // a is 3
+    console.log(`b is ${b}`); // b is 4
+    console.log(`c is ${c}`); // c is 5, 6, 7, 8, 9
+}
+
+myFunc(3, 4, 5, 6, 7, 8, 9);
+
+
+Example 2.
+
+function addAll(...numbers){
+    let ttotal = 0;
+    for(let number of number){
+        total = total + number;
+    }
+    return total;
+}
+
+const ans = addAll(4,5,6,7,8) 
+console.log(ans); // 30
+
+*/
+
+///////////////////////////////////////////////////
+
+/*
+/// ??? What is " Parameter Destructuring" ???
+
+Parameter Destructuring is use in Object and also we use mostly time in react.
+
+Example 1.
+
+const person = {
+    firstName: "Shubham";
+    gender: "male";
+}
+
+// function printDetails(obj){
+//     console.log(obj.firstName);
+//     console.log(obj.grnder);
+// }
+
+// printDetails(person); // Shubham
+//                      //  male
+
+*** Now Destructuring ***
+
+function printDetails({firstName, gender}){
+    console.log(obj.firstName);
+    console.log(obj.grnder);
+}
+
+printDetails(person); // Shubham
+                     //  male
+
+*/
+
+///////////////////////////////////////////////////
+
+/*
+/// ??? What is " CallBack Function " ???
+
+function myFunc(a){
+    console.log(a);
+    console.log("hello world");
+}
+
+myFunc(1, 2 3); // (3) [1, 2, 3] 
+                // hello world
+
+** In CallBack Function **
+
+function myFunc2(name){
+    console.log("inside my Func 2");
+    console.log(`your name is $(name)`);
+}
+
+function myFunc(callback){
+    console.log("hello there i am a func and i can ...");
+    callback("Shubham");
+}
+
+myFunc(myFunc2); // hello there i am a func and i can ...
+                //  inside myFunc2
+                // your name is Shubham
+*/
+
+///////////////////////////////////////////////////
+
+/*
+/// ??? What is " Function Returning Function " ???
+
+// function myFunc(){
+     //   return "a";
+    //    return [1, 2, 3];
+    //    return {name: "Shubham", age: 23};
+    //    return 1;
+}
+
+const ans =   myFunc();
+// console.log(ans); // a
+// console.log(ans); // (3) [1, 2, 3]
+// console.log(ans); // {name: "Shubham", age: 23}
+// console.log(ans); // 1
+
+** Now Function Return Function **
+
+function myFunc(){
+    function hello(){
+        return "hello world"
+    }
+    return hello;
+}
+
+const ans = myFunc();
+console.log(ans()); // hello world
+
+*/
+
+///////////////////////////////////////////////////
+//             IMPORTANT ARRAY METHOD
+//     1. For Each**
+//     2. Map***
+//     3. Filter
+//     4. Reduce
+//     5. Short
+//     6. Find
+//     7. Every
+//     8. Some
+//     9. Fill Method
+//     10.Splice Method
+// /////////////////////////////////////////////////
+/*
+/// ??? How to Use " For Each " Array Method ???
+
+Example 1.
+
+const numbers = [4, 2, 5, 6];
+
+function myFunc(number, index){
+    console.log(`index is ${index} number is ${number}`);
+    // console.log(`${number}*2 = ${number}*2`);
+}
+
+// myFunc(numbers[0], 0); // index is 0
+//                            //  4*2 = 8
+
+// for(let i = 0; i < numbers.length; i++){
+//     console.log(i);
+//     myFunc(numbers[i], i);
+//      // index is 0 number is 4
+//      // index is 1 number is 2
+//      // index is 2 number is 5
+//      // index is 3 number is 8
+// }
+
+
+*** Now this thing we do by For Each Method ***
+
+numbers.forEach(myFunc); // index is 0 number is 4
+                         // index is 1 number is 2
+                         // index is 2 number is 5
+                         // index is 3 number is 8
+
+
+Example 2.
 
 
 
