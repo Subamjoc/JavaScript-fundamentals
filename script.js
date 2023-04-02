@@ -2386,12 +2386,13 @@ console.log(ans()); // hello world
 //     9. Fill Method
 //     10.Splice Method
 // /////////////////////////////////////////////////
+
 /*
 /// ??? How to Use " For Each " Array Method ???
 
 Example 1.
 
-const numbers = [4, 2, 5, 6];
+const numbers = [4, 2, 5, 8];
 
 function myFunc(number, index){
     console.log(`index is ${index} number is ${number}`);
@@ -2421,6 +2422,417 @@ numbers.forEach(myFunc); // index is 0 number is 4
 
 Example 2.
 
+const numbers = [4, 2, 5, 8];
 
+numbers.forEach(function(number, indedx){
+    console.log(`index is ${index} number is ${number}); // index is 0 number is 4
+               // index is 1 number is 2
+               // index is 2 number is 5
+               // index is 3 number is 8 
+})
+
+
+Example 3.
+
+const numbers = [4, 2, 5, 8]
+
+numbers.forEach(function(number){
+    console.log(number * 3); // 12
+                             // 6
+                             // 15
+                             // 24
+})
+
+
+Example 4.
+
+const users = [
+    {firstName: "Shubham", age: 23},
+    {firstName: "Anoop", age: 23},
+    {firstName: "Bhupesh", age: 23},
+]
+
+users.forEach(function(user){
+//     console.log(user.firstName); // Shubham
+//                                  // Anoop
+//                                  // Bhupesh
+// })
+
+*** We do same thing by " For Of Loop " ***
+
+for(let user of users){
+    console.log(user.firstName); // Shubham
+                                 // Anoop
+                                 // Bhupesh
+}
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? How to Use " MAP " Array Method ???
+
+Example 1.
+
+const numbers = [3, 4, 5, 6, 7]
+
+const square = function(number){
+    return number *number;
+}
+
+const squareNumber = numbers.map(square); 
+console.log(squareNumber); // (5) [9, 16, 25, 36, 49]
+
+Example 2.
+
+const numbers = [3,4,6,1,8];
+
+const squareNumber = number.map((number, index) => {
+    return `index: ${index}, ${number * number}`;
+});
+console.log(squareNumber); // (5) ["index: 0, 9", "index: 1, 16", "index: 2, 36", "index: 3, 1", "index: 4, 64"]
+
+
+Example 3.
+
+const users = [
+    {firstName: "Shubham", age: 23},
+    {firstName: "Anoop", age: 23},
+    {firstName: "Bhupesh", age: 23},
+] 
+
+const userNames = users.map((user) =>{
+    return user.firstName;
+});
+
+console.log(userNames); // (3) ["Shubham", "Anoop", "Bhupesh"]
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? How to Use " FILTER " Array Method ???
+
+Example 1.
+
+const numbers = [1,3,2,6,4,8];
+
+const isEven = function(number){
+    return number % 2 ==== 0;
+}
+
+const evenNumbers = numbers.filter(isEven);
+
+console.log(evenNumbers); // (4) [2, 6, 4, 8]
+
+
+Example 2.
+
+const numbers = [1,3,2,6,4,8];
+
+const isOdd = function(number){
+    return number % 2 !==== 0;
+}
+
+const oddNumbers = numbers.filter(isOdd);
+
+console.log(oddNumbers); // (4) [1, 3]
+
+
+Example 3.
+
+const numbers = [1,3,2,6,4,8];
+
+const evenNumbers = numbers.filter((number) =>{
+    return number % 2 === 0;
+});
+
+console.log(evenNumbers); // (4) [2, 6, 4, 8]
+
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? How to Use " REDUCE " Array Method ???
+
+Example 1.
+
+// aim: sum of all the numbers in array
+
+const numbers = [1,2,3,4,5];
+
+const sum = numbers.reduce((accumulator, currentValue) =>{
+    return accumulator + currentValue
+});
+
+console.log(sum); // 15
+
+// acculamator   currentValue      return
+//      1              2              3
+//      3              3              6
+//      6              4              10
+//      10             5              15
+
+
+Example 2.
+
+const userCart = [
+    {productId: 1, productName: "mobile", price: 12000};
+    {productId: 2, productName: "laptop", price: 22000};
+    {productId: 3, productName: "tv", price: 15000};
+]
+
+userCart.reduce((totalPrice, currentProduct) =>{
+    return totalPrice + currentProduct.price;
+}, 0)
+
+console.log(totalAmount); 49000
+
+//  total price         current value       return 
+//       0                  {}                12000
+//     12000              22000               34000
+//     34000              15000               49000
+
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? How to Use " SORT " Array Method ???
+
+// ASCII TABLE
+
+// Character : Ascii Value
+
+//    '0'    :      48
+//    '1'    :      49
+//    '2'    :      50
+//    '3'    :      51
+//    '4'    :      52
+//    '5'    :      53
+//    '6'    :      54
+//    '7'    :      55
+//    '8'    :      56
+//    '9'    :      57
+
+
+//    ':'    :      58
+//    ';'    :      59
+//    '<'    :      60
+//    '='    :      61
+//    '>'    :      62
+//    '?'    :      63
+//    '@'    :      64
+
+
+//    'A'    :      65
+//    'B'    :      66
+//    'C'    :      67
+//    'D'    :      68
+//    'E'    :      69
+//    'F'    :      70
+//    'G'    :      71
+//    'H'    :      72
+//    'I'    :      73
+//    'J'    :      74
+//    'K'    :      75
+//    'L'    :      76
+//    'M'    :      77
+//    'N'    :      78
+//    'O'    :      79
+//    'P'    :      80
+//    'Q'    :      81
+//    'R'    :      82
+//    'S'    :      83
+//    'T'    :      84
+//    'U'    :      85
+//    'V'    :      86
+//    'W'    :      87
+//    'X'    :      88
+//    'Y'    :      89
+//    'Z'    :      90
+
+
+
+//    '['    :      91
+//    '\'    :      92
+//    ']'    :      93
+//    '^'    :      94
+//    '_'    :      95
+//    '`'    :      96
+
+
+//    'a'    :      97
+//    'b'    :      98
+//    'c'    :      99
+//    'd'    :      100
+//    'e'    :      101
+//    'f'    :      102
+//    'g'    :      103
+//    'h'    :      104
+//    'i'    :      105
+//    'j'    :      106
+//    'k'    :      107
+//    'l'    :      108
+//    'm'    :      109
+//    'n'    :      110
+//    'o'    :      111
+//    'p'    :      112
+//    'q'    :      113
+//    'r'    :      114
+//    's'    :      115
+//    't'    :      116
+//    'u'    :      117
+//    'v'    :      118
+//    'w'    :      119
+//    'x'    :      120
+//    'y'    :      121
+//    'z'    :      122
+
+
+//    '{'    :      123
+//    '/'    :      124
+//    '}'    :      125
+
+
+** What is Sorting.. if we have some number // 5, 9, 410, 1210, 3000 
+now we are sorting and expecting this ascending sorting result
+    After Sorting we expepecting this result  //   5, 9, 410, 1210, 3000
+
+*** In Sort Method it's change our orignal array change or muted. ***
+
+
+Example 1.
+
+
+const numbers = [5, 9, 410, 1210, 3000];
+
+numbers.sort();
+console.log(numbers); // (5) [1200, 3000, 400, 5, 9]
+
+Character  Take   Asciii Value
+1200         1         49
+3000         3         51
+400          4         52
+5            5         53
+9            9         57
+
+** // So, in JavaScript Sorting Method first number take as a string after that sorting according to the Ascii value. **
+
+
+Example 2.
+
+const userNames = ['Shubham', 'abcd', 'Anoop', 'bhupesh'];
+
+userNames.sort();
+console.log(userNames); // (4) ['Anoop', 'Shubham', 'abcd', 'bhupesh']
+
+
+Example 3.
+
+const numbers = [5, 9, 1200, 410, 3000];
+
+numbers.sort((a, b) =>{
+    return a - b;
+});
+
+console.log(numbers); (5) [5, 9, 410, 1200, 3000]
+
+*** Note:- " a - b ----> Positive (Gretater than 0) ----> b, a "  ***
+
+
+Example 4.
+
+const numbers = [5, 9, 1200, 410, 3000];
+
+numbers.sort((a, b) =>{
+    return b - a;
+});
+
+console.log(numbers); (5) [3000, 1200, 400, 9, 5]
+
+*** Note:- " a - b ----> Negative (Less than 0) ----> a, b " ***
+
+
+Example 5. // Price Low to High Sorting
+
+const products = [
+    {productId: 1, productName: "p1", price: 300 },
+    {productId: 2, productName: "p2", price: 3000 },
+    {productId: 3, productName: "p3", price: 200 },
+    {productId: 4, productName: "p4", price: 8000 },
+    {productId: 5, productName: "p5", price: 500 },
+]
+
+const lowToHigh = products.slice(0).sort((a, b) =>{
+    return a.price - b.price
+});
+
+console.log(products); // (5) [{...}, {...}, {...}, {...}, {...}]
+                        {productId: 1, productName: "p1", price: 300 }
+                        {productId: 2, productName: "p2", price: 3000 }
+                        {productId: 3, productName: "p3", price: 200 }
+                        {productId: 4, productName: "p4", price: 8000 }
+                        {productId: 5, productName: "p5", price: 500 }
+
+
+
+
+console.log(lowToHigh); // (5) [{...}, {...}, {...}, {...}, {...}]
+                    > 0   {productId: 3, productName: "p3", price: 200 }
+                    > 1   {productId: 1, productName: "p1", price: 300 }
+                    > 2   {productId: 5, productName: "p5", price: 500 }
+                    > 3   {productId: 2, productName: "p2", price: 3000}
+                    > 4   {productId: 4, productName: "p4", price: 8000}
+                      length: 5
+                      _proto_: Array
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? How to Use " FIND " Array Method ???
+
+Example 1.
+
+const myArray = ["Hello", "cat", "dog", "lion"];
+
+function isLength3(string){
+    return string.length === 3;
+}
+
+// const ans = isLength3("dog");
+// console.log(ans); // true
+
+// const ans = isLength3("doggy");
+// console.log(ans); // false
+
+
+const ans = myArray.find(isLength3);
+console.log(ans); // cat (** find only 1st occurance)
+
+
+Example 2.
+
+const users = [
+    {userId: 1, userName: "Anoop"},
+    {userId: 2, userName: "Bhupesh"},
+    {userId: 3, userName: "Devesh"},
+    {userId: 4, userName: "Himanshu"},
+    {userId: 5, userName: "Shubham"},
+];
+
+users.find((user) => user.userId === 3);
+console.log(myUser); // {userId: 3, userName: "Devesh"}
+
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? How to Use " EVERY " Array Method ???
+
+Example 1.
 
 */
