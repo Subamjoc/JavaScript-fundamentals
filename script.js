@@ -2578,10 +2578,10 @@ console.log(sum); // 15
 Example 2.
 
 const userCart = [
-    {productId: 1, productName: "mobile", price: 12000};
-    {productId: 2, productName: "laptop", price: 22000};
-    {productId: 3, productName: "tv", price: 15000};
-]
+    {productId: 1, productName: "mobile", price: 12000},
+    {productId: 2, productName: "laptop", price: 22000},
+    {productId: 3, productName: "tv", price: 15000},
+];
 
 userCart.reduce((totalPrice, currentProduct) =>{
     return totalPrice + currentProduct.price;
@@ -2832,6 +2832,188 @@ console.log(myUser); // {userId: 3, userName: "Devesh"}
 
 /*
 /// ??? How to Use " EVERY " Array Method ???
+
+Example 1.
+
+const numb3ers = [2,4,6,9,10];
+
+const ans = numbers.every((number) => number % 2 === 0);
+
+// callback function ----> true/false (boolean)
+
+// every method ----> true/false (boolean)
+
+console.log(ans); // false
+
+
+Example 2.
+
+const userCart = [
+    {productId: 1, productName: "mobile", price: 12000},
+    {productId: 2, productName: "laptop", price: 22000},
+    {productId: 3, productName: "tv", price: 15000},
+];
+
+const ans = userCart.every((cartItem) => cartItem.price < 30000);
+console.log(ans); // true
+
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? How to Use " SOME " Array Method ???
+
+Example 1. If any number is even than output will be given true.
+
+const numbers = [3,5,8,9];
+
+const ans = numbers.some((number) => number % 2 === 0);
+
+console.log(ans); // true
+
+
+Example 2.
+
+const userCart = [
+    {productId: 1, productName: "mobile", price: 12000},
+    {productId: 2, productName: "laptop", price: 22000},
+    {productId: 3, productName: "tv", price: 15000},
+    {productId: 4, productName: "macbook", price: 150000},
+];
+
+const ans = userCart.some((cartItem) => cartItem.price > 100000);
+
+console.log(ans); // true
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? How to Use " SOME " Array Method ???
+
+Example 1.
+
+const myArray = new Array(10).fill(0);
+
+console.log(myArray); // (10) [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] 
+
+
+
+Exyample 2. In fill method 
+    //   Fill Value,    Stat index,    End Index
+
+const myArray = [1,2,3,4,5,6,7,8];
+
+myArray.fill(0,2,5);
+console.log(myArray); // (8) [1, 2, 0, 0, 0, 6, 7, 8]
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? How to Use " SPLICE " Array Method ???
+
+// If you want in any any arry anything new insert  or delete than you use SPLICE method of ARRAY.
+
+***  Sequence of doing Splice Method  
+    // Start, Delete, Insert // ***
+
+Example 1.
+
+const myArray = ['item1', 'item2', 'item3'];
+
+// Delete
+
+// myArray.splice(1, 1);
+
+// console.log(myArray); // (2) ["item1", "item3"]
+
+
+// // Insert 
+
+// myArray.splice(1, 0, 'inserted item');
+
+// console.log(myArray); // (4) ["item1", "inserted item", "item2", "item3"]
+
+
+// insert & Delete simultaneously
+
+const deletedItem = myArray.splice(1, 2, "inserted item1", "inserted item2");
+
+console.log("deleted item", deletedItem); // deleted item > (2) ["item2", "item3"]
+
+console.log(myArray);  (3) ["item1", "inserted item1", "inserted item2"]
+*/
+
+////////////////////////////////////////////////////
+
+/*    More Useful Things   */
+
+// 1. Iterables
+// 2. Sets
+// 3. Maps
+// 4. Object Assign
+// 5. Optional Chaining
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? What is " ITERABLES " ??? And, How it Works ??? ///
+
+** Iterables :- Iterables are those in which we use " For Of Loop ". "String" and "Array" are Iterable. **
+
+Example 1.
+
+const firstName = "Shubham";
+
+for(let char of firstName){
+    console.log(char); // S  h  u  b  h  a  m
+}
+
+
+Example 2.
+
+const items = ['item1', 'item2', 'item3'];
+
+for(let item of items){
+    console.log(item); //  item1   item2   item3
+}
+
+
+Example 3.
+
+const users = {'key1', 'key2', 'key3'};
+
+for(let item of users){
+    console.log(item); // Uncaught TypeError : Users is not iterable.
+}
+
+** NOTE :- Iterable are String, Array but Objects are not Itetrable. **
+
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? What is " Array Like Objects " ??? And, How it Works ??? ///
+
+** Array Like Objects :- Array Like Objects are those in which we have " Own Length Property ". Also Array Like Objects Access with Index. "String" are Array Like Objects. **
+
+Example 1.
+
+const firstName = "Shubham";
+console.log(firstName.length); // 7
+console.log(firstName[2]); // u
+
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? What is " SETS " ??? And, How it Works ??? ///
+
+** Sets :- Array Like Objects are those in which we have " Own Length Property ". Also Array Like Objects Access with Index. "String" are Array Like Objects. **
 
 Example 1.
 
