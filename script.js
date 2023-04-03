@@ -1,3 +1,9 @@
+///////////////////////////////////////////////////
+
+/*    ** JAVASCRIPT FUNDAMENTALS **    */
+
+///////////////////////////////////////////////////
+
 /*
 // Hello World Program
 
@@ -3013,8 +3019,359 @@ console.log(firstName[2]); // u
 /*
 /// ??? What is " SETS " ??? And, How it Works ??? ///
 
-** Sets :- Array Like Objects are those in which we have " Own Length Property ". Also Array Like Objects Access with Index. "String" are Array Like Objects. **
+** Sets :- Sets it is Iterable. **
+
+
+** // Sets Store Data
+  //  Sets also have its Own Methods
+  //  No Index-Based Access
+  //  Order is Not Guaranteed
+  //  Unique Items Only (No Duplicates Allowed) **
+
 
 Example 1.
+
+const numbers = new Set([1,2,3]);
+
+console.log(numbers); // >Set(3) {1, 2, 3}
+
+console.log(numbers[2]); // undefined
+
+
+Example 2.
+
+const numbers = new Set("abc");
+
+console.log(numbers); // >Set(3) {"a", "b", "c"}
+
+
+Example 3.
+
+const items = ["item1", "item2", "item3"];
+
+const numbers = new Set();
+
+numbers.add(1);
+
+numbers.add(2);
+
+numbers.add(2); // ignoring this because duplicates are not allowed in sets
+
+numbers.add(items);
+
+console.log(numbers); // >Set(3) {1, 2, Array(3)}
+
+
+Example 4.
+
+const numbers = new Set();
+
+numbers.add(["item1", "item2"]);
+
+numbers.add(["item1", "item2"]); // in this time this is not ignoring by sets because in javascript if you are using sets with making new square bracket any similar thing than it is consider as a different memory... that's why this time it is not ignoring by sets.
+
+console.log(numbers); // >Set(2) {Array(2), Array(2)}
+
+
+Example 5. In Sets if you want to check any number is present or not in givent Set than you use this method:-
+
+const numbers = new Set();
+
+numbers.add(1);
+numbers.add(2);
+
+console.log(numbers); // >Set(2) {1, 2}
+
+// ** now  using checking method  **
+
+if(numbers.has(1)){
+    console.log("1 is present"); // 1 is present
+}else{
+    console.log("1 is not present");
+}
+
+
+
+Example 6. Sets are Iterables, so in sets we use "for of loop".
+
+const numbers = new Set();
+
+numbers.add(1);
+numbers.add(2);
+numbers.add(3);
+numbers.add(4);
+numbers.add(5);
+numbers.add(6);
+numbers.add(7);
+
+for(let number of numbers){
+    console.log(number); // 1  2  3  4  5  6  7
+}
+
+
+Example 6. Sets are using in real life example when you are find unique elements in array than you are using sets to extract unique elements from an Array.
+
+const myArray = [1,2,4,4,5,6,6,5];
+
+const uniqueElements = new Set(myArray);
+
+console.log(uniqueElements); // >Set(5) {1,2,4,5,6}
+
+console.log(myArray); // >(8) [1,2,4,4,5,6,6,5]
+
+
+Example 7. To Get Length of any Set 
+
+const myArray = [1,2,4,4,5,6,6,5];
+
+const uniqueElements = new Set(myArray);
+
+console.log(uniqueElements); // >Set(5) {1,2,4,5,6}
+
+let length = 0;
+for(let element of uniqueElements){
+    length++;
+}
+
+console.log(length); // 5
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? What is " MAPS (OBJECT) " ??? And, How it Works ??? ///
+
+**Before to know about MAPS first we recall OBJECTS. ** 
+
+// Objects curly bracket part is known as an " OBJECT LITERAL".
+// OBJECTS can Only have STRING or SYMBOL as Key.
+
+Exampple 1.
+
+const person = {
+    firstName ; "Shubham",
+    age : 23,
+    1 : "one"
+}
+
+console.log(person.firstName); // Shubham
+console.log(person["firstName"]); // Shubham
+console.log(person["1"]); // one
+
+for(let key in person0{
+    console.log(typeof key); // 3 string
+})
+
+** Now time to know about Maps **
+
+** Maps :- Maps is an Iterable. Maps store inseide our Key-Value pair like an Object. But in Maps you can use anything as key like Array, Number, String etc. 
+    // Maps Store Data in Ordered Fashion.
+    // In Maps Duplicate Keys are not allowed like Objects.
+
+
+Example 1.
+
+const person = new Map();
+
+console.log(person); // >Map(0) {}
+
+
+Example 2.
+
+const person = new Map();
+
+person.set('sirstName', 'Shubham');
+person.set('age', 23);
+person.set(1, 'one');
+person.set([1,2,3], 'onetwothree');
+person.set({1: 'one', 'oneratioone'});
+
+console.log(person); // Map(5) {"firstName" => "Shubham", "age" => 23, 1 => "one", Array(3) => "onetwothree", {...} => "oneratioone"}
+
+// console.log(person.firstName); // undefined
+// console.log(person["firstName"]); // undefined
+
+console.log(person.get('age')); // 23
+
+console.log(person.get(1)); // one
+
+console.log(person.keys('age')); // MapIterator {"firstName", "age", 1, Array(3)}
+
+// ** for of loop **
+
+// for(let key of person.keys()){
+//     console.log(key, typeof key); 
+//     // firstName  string    
+//     // age  string  
+//     // 1 "number"
+//     // >(3) [1, 2, 3] "object"
+//     // >{1: "one"}  "object" 
+// }
+
+
+
+Example 2.
+
+const person = new Map([["firstName", "Shubham"], ['age', 23]]);
+
+console.log(person); // Map(2) {"firstName" => "Shubham, "age" => 23}
+
+
+
+Example 3. In Maps we are directly use "for of loop but in object we not use for of loop , in ibject we are using "for in loop'.
+
+
+const person = new Map();
+
+person.set('sirstName', 'Shubham');
+person.set('age', 23);
+person.set(1, 'one');
+
+for(let key of person){
+    console.log(key);
+    // >(2) ["firstName", "Shubham"]
+    // >(2) ["age", 23]
+    // >(2) [1, "one"]
+}
+
+// ** if we want to check this is array or not
+
+// for(let key of person){
+//     console.log(typeof key); // (3) object {because Array are objects}
+// }
+
+// for(let key of person){
+//     console.log(Array.isArray(key)); (3) true
+// }
+
+// ** if you dirctly write key-value pair so its show error. sor for  this you use destructuring. **
+
+// for(let key, value of person){
+//     console.log(key, value); // Uncaught Syntax Error
+// }
+
+// ** for destructuring we do **
+
+for(let[key, value] of person){
+    console.log(key, value);
+    // firstName Shubham
+    // age 23
+    // 1 "one"
+}
+
+
+Example 4. IF you have an object and now you add some other infofmation related to given  object in not in given object but in another place by  using Map by this method:-
+
+const person1 = {
+    id: 1,
+    firstName: "Shubham"
+}
+
+const person2 = {
+    id: 2,
+    firstName: "Nidhi"
+}
+
+const extraInfo = new Map();
+
+extraInfo.set(person1, {age: 8, gender: "male"});
+extraInfo.set(person2, {age: 9, gender: "female"});
+
+
+//console.log(extraInfo);// Map(1) {{...} => {...}} 
+                      //  [[Entries]]
+                      //  0: {Object = Object}
+                         // key: {id: 1, firstName: "Shubham"}
+                         //  value: {age: 8, gender: "male"}
+                      //  size: (...)
+                      // > _proto_: Map  
+
+                
+console.log(person1.id); // 1
+
+console.log(extraInfo.get(person1)); // {age; 8, gender: "male"}
+
+console.log(extraInfo.get(person1).age); // 8 
+console.log(extraInfo.get(person1).gender); // female 
+
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? What is " Clone Using OBJECT ASSIGN " ??? And, How it Works ??? ///
+
+const obj = {
+    key1: "value1",
+    key2: "value2"
+}
+
+// const obj2 = obj;
+
+// const obj2 = {...obj};  // using spread opreator
+
+const obj2 = Object.assign({}, obj); // cloning by using object assign method
+
+obj.key3 = "value3"
+
+// console.log(obj); // {key1: "value1", key2: "value2", key3: "value3"}
+// console.log(obj2); // {key1: "value1", key2: "value2", key3: "value3"}
+
+// ** but we not want same thing uin both object so we do cloning by using spread opreator **
+
+console.log(obj); // {key1: "value1", key2: "value2", key3: "value3"}
+console.log(obj2); // {key1: "value1", key2: "value2"}
+
+
+// ** we do cloning in javascript of object by using OBJECT ASSIGN Method **
+
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? What is " Optional Chaining " ??? And, How it Works ??? ///
+
+Example 1. 
+
+const user = {
+    firstName: "Shubham",
+    address: {houseNumber: '1234'}
+}
+
+console.log(user.firstName); // Shubham
+console.log(user.address); // {houseNumber: "1234"}
+console.log(user.address.houseNumber); // 1234
+
+Example 2.
+
+const user = {
+    firstName: "Shubham",
+    // address: {houseNumber: '1234'}
+}
+
+console.log(user.firstName); // Shubham
+console.log(user.address); // undefined
+console.log(user.address.houseNumber); // Uncaught TypeError: Cannot read property 'houseNumber' of undefined.
+
+
+
+// *** OPTIONAL CHAINING :-  Now come in the Topic OPTIONAL CHAINING, in which we do if you have something is not available that time but that is available in after some time so when this is not available than by using OPTIONAL CHAINING METHOD you get UNDEFINED that time and after you available this thing than this undefined replace with available thing.  **** 
+
+
+Example 1. 
+
+const user = {
+    firstName: "Shubham",
+    // address: {houseNumber: 1234}
+}
+
+console.log(user?.firstName); // Shubham
+
+// console.log(user?.address?.housenumber); // 1234
+
+// *** after commenting address 
+
+console.log(user?.address?.houseNumber); // undefined
 
 */
