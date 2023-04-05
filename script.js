@@ -3375,3 +3375,374 @@ console.log(user?.firstName); // Shubham
 console.log(user?.address?.houseNumber); // undefined
 
 */
+
+////////////////////////////////////////////////////
+
+/* OBJECT ORIENTED JAVASCRIPT
+                    or
+            PROTOTYPAL INHERITENCE */
+
+////////////////////////////////////////////////////
+
+/*
+
+
+////////////////////////////////////////////////////
+
+
+/*
+/// ??? What is " METHODS " ??? And, How it Works ??? ///
+
+** Methods are " Function Inside Object ".
+
+Example 1.
+
+const person = {
+    // firstName: "Shubham",
+    firstName: Anoop,
+    age: 23
+    about: function(){
+        console.log("Person name is Shubham and person age is 23")
+    }
+}
+
+
+// console.log(person.about); // f(){
+                                    console.log("Person name is Shubham and person age is 23")
+                                   }
+
+// we want not this above output, we want to call function so we do, 
+
+// person.about(); // Person name is Shubham
+//                    and person age is 23
+/*
+
+
+////////////////////////////////////////////////////
+
+
+/*
+/// ??? What is " this Keyword & Window Object " ??? And, How it Works ??? ///
+
+
+Example 1.
+
+const person = {
+    // firstName: "Shubham",
+    firstName: Anoop,
+    age: 23
+    about: function(){
+        // console.log(`Person name is ${firstName} and age is ${age}`)
+        console.log(`Person name is ${this.firstName} and age is ${this.age}`)
+    }
+}
+
+// ** but if we change firstName but in about section it is not change so we write in template string but in output it's show error
+
+// person.about(); // Uncaught Error
+
+// ** so if we want firstName change when we change this also in output also show change value so we use "this keyword" and it is use like that just in template string section when you are using key ${this.firstName} than it's show correct output.  
+
+// ** what is this keyword ??  this keyword is that object which help to call back to  function.
+
+person.about(); // Person name is Anoop
+                    and person age is 23
+
+
+
+Example 2.
+
+function personInfo(){
+    console.log(`Person name is ${this.firstName} and age is ${this.age}`);
+}
+
+const person1 = {
+    firstName : "Shubham",
+    age : 23,
+    about : personInfo
+}
+const person2 = {
+    firstName : "Mohit",
+    age : 23,
+    about: personInfo
+}
+const person3 = {
+    firstName : "Nitish",
+    age : 17,
+    about : personInfo
+}
+
+personInfo(); // Person name is undefined and age is
+                 undefined
+
+// *** but if we do 
+
+person1.about(); // Person name is Shubham and age 
+                    is 23
+
+person2.about(); // Person name is Mohit and age 
+                    is 23
+
+person3.about(); // Person name is Nitish and age 
+                    is 17
+
+
+
+// *** If we want output of  " console.log(this); " than we get " window object " similarly if want output of " console.log(window); " than we get same result " window object ". Because 'this and window are same, i.e true'. 
+
+Example 3.
+
+console.log(this); // Window {window: Window, self: Window, document: document, name: "", location: location, ...}
+
+console.log(window); // Window {window: Window, self: Window, document: document, name: "", location: location, ...}
+
+Example 4.
+
+// function myFunc(){
+//     console.log(this);
+// }
+// myFunc(); // Window {window: Window, self: Window, document: document, name: "", location: location, ...}
+
+// *** So to safe from above problem we use " use strict " method t get exact output which we want. 
+
+// function myFunc(){
+//     "use strict"
+//     console.log(this);
+// }
+// myFunc(); // undefined
+
+            OR
+
+"use strict"
+function myFunc(){
+    console.log(this);
+}
+myFunc(); // undefined
+
+*/
+
+////////////////////////////////////////////////////
+
+/*
+/// ??? What is " CALL, APPLY & BIND Method " ??? And, How it Works ??? ///
+
+
+** Call **
+
+Example 1. 
+
+const user1 = {
+    firstName : "Shubham",
+    age : 23,
+    about : function(){
+        console.log(this.firstName, this.age)
+    }
+}
+
+// user1.about(); // Shubham 23
+
+const user2 = {
+    firstName : "Anoop",
+    age : 23,
+    }
+}
+
+// ** now if you want to call about for user2 than you use call method. **
+
+user1.about.call(user2); // Anoop 23
+
+user1.about.call(); // undefined  undefined
+
+user1.about.call(user1); // Shubham 23
+
+user1.about(); // Shubham 23
+
+
+
+Example 2.
+
+
+const user1 = {
+    firstName : "Shubham",
+    age : 23,
+    about : function(hobby, favMusician){
+        console.log(this.firstName, this.age, hobby, favMusician)
+    }
+}
+const user2 = {
+    firstName : "Anoop",
+    age : 23,
+    }
+}
+
+// user1.about.call(user2, "Guitar"); // Anoop 23 Guitar  Undefined
+
+user1.about.call(user2, "Guitar", "Mozzart"); // Anoop 23 Guitar  Mozzart
+
+
+                        OR
+
+function about(hobby, favMusician){
+        console.log(this.firstName, this.age, hobby, favMusician)
+const user1 = {
+    firstName : "Shubham",
+    age : 23,
+    }
+}
+const user2 = {
+    firstName : "Anoop",
+    age : 23,
+    }
+}
+
+// user1.about.call(user2, "Guitar"); // Anoop 23 Guitar  Undefined
+
+user1.about.call(user2, "Guitar", "Mozzart"); // Anoop 23 Guitar  Mozzart
+
+
+** Apply **
+
+// ** Apply is similar like to Call, in this when you pass extra arguments in call sepreatly, so in Apply extra argument pass in an Array. **
+
+
+Example 1. 
+
+
+function about(hobby, favMusician){
+        console.log(this.firstName, this.age, hobby, favMusician)
+const user1 = {
+    firstName : "Shubham",
+    age : 23,
+    }
+}
+const user2 = {
+    firstName : "Anoop",
+    age : 23,
+    }
+}
+
+about.apply(user1, ["Guitar", "Bach"]); // Shubham 23 Guitar Bach
+
+
+** Bind **
+
+// ** Bind give you return a function, so this function you call any time. **
+
+
+function about(hobby, favMusician){
+        console.log(this.firstName, this.age, hobby, favMusician)
+const user1 = {
+    firstName : "Shubham",
+    age : 23,
+    }
+}
+const user2 = {
+    firstName : "Anoop",
+    age : 23,
+    }
+}
+
+const func = about.bind(user2, "Guitar", "Bach");
+
+func(); // Anoop 23 Guitar Mozzart 
+*/
+
+
+////////////////////////////////////////////////////
+
+
+/*
+/// ??? SOME WARNINGS ( Don't Do This Mistake ) ///
+
+const user1 = {
+    firstName : "Shubham",
+    age : 23,
+    about : function(){
+        console.log(this.firstName, this.age);
+    }
+}
+
+
+// const myFunc = user1.about;
+// myFunc(); // undefined undefined
+
+
+// Don't do above mistake;
+
+const myFunc = user1.about.bind(user1);
+myFunc(); // Shubham 23
+*/
+
+
+
+////////////////////////////////////////////////////
+
+
+/*
+/// ??? What is " this Inside Arrow Function " ??? And, How it Works ??? ///
+
+
+// ** In ARROW FUNCTION our own 'this keword' is not, Arrow Function take 'this keyword' from it's surrounding or one more step ahed (this is window object). **
+
+
+const user1 = {
+    firstName : "Shubham",
+    age : 23,
+    about : () => {
+        console.log(this.firstName, this.age);
+    }
+}
+
+user1.about(user1); // undefined undefined
+
+*/
+
+
+////////////////////////////////////////////////////
+
+
+/*
+/// ??? Short Syntax for METHOD ??? ///
+
+
+//  ** this is general method
+
+
+const user1 = {
+    firstName : "Shubham",
+    age : 23,
+    about : function(){
+        console.log(this.firstName, this.age);
+    }
+}
+
+user1.about(); // Shubham 23
+
+
+
+// ** Short Syntax for Method
+
+
+const user1 = {
+    firstName : "Shubham",
+    age : 23,
+    about(){
+        console.log(this.firstName, this.age);
+    }
+}
+
+user1.about(); // Shubham 23
+
+*/
+
+
+////////////////////////////////////////////////////
+
+
+/*
+/// ??? Short Syntax for METHOD ??? ///
+
+
+
+
+
