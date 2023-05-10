@@ -3647,9 +3647,7 @@ const func = about.bind(user2, "Guitar", "Bach");
 func(); // Anoop 23 Guitar Mozzart 
 */
 
-
 ////////////////////////////////////////////////////
-
 
 /*
 /// ??? SOME WARNINGS ( Don't Do This Mistake ) ///
@@ -3673,10 +3671,7 @@ const myFunc = user1.about.bind(user1);
 myFunc(); // Shubham 23
 */
 
-
-
 ////////////////////////////////////////////////////
-
 
 /*
 /// ??? What is " this Inside Arrow Function " ??? And, How it Works ??? ///
@@ -3697,9 +3692,7 @@ user1.about(user1); // undefined undefined
 
 */
 
-
 ////////////////////////////////////////////////////
-
 
 /*
 /// ??? Short Syntax for METHOD ??? ///
@@ -3735,12 +3728,263 @@ user1.about(); // Shubham 23
 
 */
 
+////////////////////////////////////////////////////
+
+/*
+/// ??? Factory Functions & Discuss Some Memory Related Problems ??? ///
+
+
+
+// if you want to create lots of object so you not create one by one this is very teadious work so work in a deiffernt way or approach that is :-
+
+1. First Create a Function, that function take as a input like firstname, lastName ... and after that return object  (That function Create object)
+
+2. After that Add Key Value pair in this object
+
+3. After that Object return..
+
+
+Example:-
+
+const user1 = {
+    firstName : "Shubham",
+    lastName: "Joshi",
+    email: "subhamjoshi1998@gmail.com",
+    age: 23,
+    address: "House Number, Colony, Pincode, State",
+    about: function(){
+        return `${this.firstName} is ${this.age} years old.`;
+    },
+    is.18: function(){
+         return this.age >= 18;
+    }   
+}
+
+function createUser(firstName, lastName, email, age, address){
+    const user = {};
+    user.firstName = firstName;
+    user.lastName = lastName;
+    user.email = email;
+    user.age = age;
+    user.address = address;
+    user.about = function(){
+        return `${this.firstName} is ${this.age} years old.`;
+    },
+    user.is18 = function(){
+        return this.age >= 18;
+    }
+    return user;
+};
+ 
+const user1 = createUser("Shubham", "Joshi", "subhamjoshi1998@gmail.com", 23, "my address");
+
+console.log(user1); //  {firstName:"Shubham", .........., address: "my address", ...}
+
+const is18 = user1.is18();
+console.log(is18); // true
+
+const about = user1.about();
+console.log(about); // Shubham is 23 years old.
+
+
+
+/////` that is the method to create multiple objects in one way but in this method lot's of mistakes that is... /////
+/// in this method if we want multiple object than we create multiple METHOD FOR Each OBJECT, so its fill memory, so for this problem to resolve we try another way that is...////
+
+
+Example:-
+
+
+const userMethod = {
+    about : function(){
+        return `${this.firstName} is ${this.age} years old.`;
+    },
+    is18 : function(){
+        return this.age >= 18;
+    }
+}
+function createUser(firstName, lastName, email, age, address){
+    const user = {};
+    user.firstName = firstName;
+    user.lastName = lastName;
+    user.email = email;
+    user.age = age;
+    user.address = address;
+    user.about = userMethods.about;
+    user.is18 = userMethods.is18;
+    
+    return user;
+}
+
+const user1 = createUser("Shubham", "Joshi", "subhamjoshi1998@gmail.com", 23, "my address");
+const user2 = createUser("Bhupesh", "Nikhurpa", "bhupesh@gmail.com", 23, "my address2");
+const user3 = createUser("Anoop", "Chauhan", "anoop@gmail.com", 23, "my address3");
+
+console.log(user1.about()); // Shubham is 23 years old.
+console.log(user3.about()); // Anoop is 23 years old.
+
+
+
+/// ... Now we improve opur code so we do.. 
+         1. Create One More Method
+         2. We use .create property
+         3. to ctreate empty object in anotherr way and if we have two ovject with different detail but we want some information from other object how we get ///
+
+
+Example 1 :-
+
+const userMethod = {
+    about : function(){
+        return `${this.firstName} is ${this.age} years old.`;
+    },
+    is18 : function(){
+        return this.age >= 18;
+    },
+    sing: function(){
+        return "Jindagi Sawar doon, ek nayi bahar doon ..."
+    }
+}
+function createUser(firstName, lastName, email, age, address){
+    const user = {};
+    user.firstName = firstName;
+    user.lastName = lastName;
+    user.email = email;
+    user.age = age;
+    user.address = address;
+    user.about = userMethods.about;
+    user.is18 = userMethods.is18;
+    user.sing = userMethods.sing;
+
+    return user;
+}
+
+const user1 = createUser("Shubham", "Joshi", "subhamjoshi1998@gmail.com", 23, "my address");
+const user2 = createUser("Bhupesh", "Nikhurpa", "bhupesh@gmail.com", 23, "my address2");
+const user3 = createUser("Anoop", "Chauhan", "anoop@gmail.com", 23, "my address3");
+
+console.log(user1.about()); // Shubham is 23 years old.
+console.log(user3.sing()); // Jindagi Sawar doon, ek nayi bahar doon ...
+
+
+Example 2.
+
+const userMethod = {
+    about : function(){
+        return `${this.firstName} is ${this.age} years old.`;
+    },
+    is18 : function(){
+        return this.age >= 18;
+    },
+    sing: function(){
+        return "Jindagi Sawar doon, ek nayi bahar doon ..."
+    }
+}
+function createUser(firstName, lastName, email, age, address){
+    const user = Object.create"(userMethods); // {}
+    user.firstName = firstName;
+    user.lastName = lastName;
+    user.email = email;
+    user.age = age;
+    user.address = address;
+
+    return user;
+}
+
+const user1 = createUser("Shubham", "Joshi", "subhamjoshi1998@gmail.com", 23, "my address");
+const user2 = createUser("Bhupesh", "Nikhurpa", "bhupesh@gmail.com", 23, "my address2");
+const user3 = createUser("Anoop", "Chauhan", "anoop@gmail.com", 23, "my address3");
+
+
+console.log(user1); // {firstName : "Shubham", lastName : "Joshi", email : "subhamjoshi1998@gmail.com", age : 23, address : "my address"}
+
+console.log(user1.about()); // Shubham is 23 years old.
+
+
+
+Example 3(i) :-
+
+const obj1 = {
+    key1: "value1",
+    key2: "value2"
+}
+
+const obj2 = {};
+obj2.key3 = "value3";
+
+console.log(obj2.key1); // undefined
+console.log(obj2.key3); // value3
+
+
+Example 3(ii) :- // There is one more way to create empty object. i.e.
+
+const obj1 = {
+    key1: "value1",
+    key2: "value2"
+}
+
+const obj2 = Objecty.create(obj1);
+
+console.log(obj2); // {}
+
+
+
+Example 3(iii) :- 
+
+const obj1 = {
+    key1: "value1",
+    key2: "value2"
+}
+
+const obj2 = Objecty.create(obj1);
+
+obj.key3 = "value3";
+// obj.key2 = "unique";
+
+
+console.log(obj2.key2); // value2
+
+// console.log(obj2.key2); // unique
+
+console.log(obj2); // {key3: "value3"}
+                       key3: "value3"
+                       ^__proto__: 
+                          key1: "value1"
+                          key2: "value2"
+                        >__proto__: Object
+
+
+////   Note:- ** In  Official Ecmascript Documentation 
+                __proto__ = [[prototype]]
+
+    *** but this .. //prototype is completely different *** ...
+    */
+
 
 ////////////////////////////////////////////////////
 
-
 /*
-/// ??? Short Syntax for METHOD ??? ///
+/// ??? What is " prototype " ??? ///
+
+
+function hello(){
+    console.log("hello world");
+}
+hello(); // hello world
+
+**** Note:- 
+          ** In JavaScript Function is behave like function also function is bheave like a object.
+            i.e.  function ===> function + object 
+    Eg.:-  
+          console.log(hello.name); // hello 
+        ( // name property ---> tells function name)
+         
+           ** In JavaScript you can add your own Properties in function
+    Eg.:-  
+           hello.myOwnProperty = "very unique value";
+           console.log(hello.myOwnProperty); // very unique value
+
+           ** Function provides more usefull properties.
+
 
 
 
